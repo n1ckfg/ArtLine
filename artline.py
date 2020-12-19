@@ -10,11 +10,11 @@ Original file is located at
 **Create** **Amazing** **Line** **Art**.
 """
 
-!git clone https://github.com/vijishmadhavan/ArtLine.git ArtLine
+#!git clone https://github.com/vijishmadhavan/ArtLine.git ArtLine
 
-cd ArtLine
+#cd ArtLine
 
-!pip install -r colab_requirements.txt
+#!pip install -r colab_requirements.txt
 
 """# **Runtime**
 
@@ -71,9 +71,9 @@ class FeatureLoss(nn.Module):
     
     def __del__(self): self.hooks.remove()
 
-MODEL_URL = "https://www.dropbox.com/s/p9lynpwygjmeed2/ArtLine_500.pkl?dl=1 "
-urllib.request.urlretrieve(MODEL_URL, "ArtLine_500.pkl")
-path = Path(".")
+#MODEL_URL = "https://www.dropbox.com/s/p9lynpwygjmeed2/ArtLine_500.pkl?dl=1 "
+#urllib.request.urlretrieve(MODEL_URL, "ArtLine_500.pkl")
+path = Path("Model")
 learn=load_learner(path, 'ArtLine_500.pkl')
 
 """# **URL**
