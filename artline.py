@@ -97,7 +97,8 @@ show_image(img_fast, figsize=(7,7), interpolation='nearest');
 """# **Output**"""
 
 p,img_hr,b = learn.predict(img_fast)
-Image(img_hr).show(figsize=(7,7))
+#Image(img_hr).show(figsize=(7,7))
+Image(img_hr).save("output.png")
 
 """# **Recommended image sources**
 
