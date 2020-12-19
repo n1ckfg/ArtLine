@@ -1,6 +1,6 @@
 # ArtLine
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
-
+### Requires: Python 3.7
 
 The main aim of the project is to create amazing line art portraits. 
 
