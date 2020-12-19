@@ -1,6 +1,6 @@
 # ArtLine
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
-### Requires: Python 3.7
+### Requires: Python 3.7, CUDA 10.1, CUDNN 7.6
 
 The main aim of the project is to create amazing line art portraits. 
 
