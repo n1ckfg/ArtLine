@@ -52,7 +52,6 @@ parser.add_argument("--output_dir", required=True, help="where to put output fil
 parser.add_argument("--model", default=None, help="path to model directory")
 a = parser.parse_args()
 
-'''
 if a.input_dir is None or not os.path.exists(a.input_dir):
     raise Exception("input_dir does not exist")
 
@@ -64,10 +63,8 @@ if len(input_paths) == 0:
 if len(input_paths) == 0:
     raise Exception("input_dir contains no image files")
 
-image_dir = os.path.join(a.output_dir, "images")
-if not os.path.exists(image_dir):
-    os.makedirs(image_dir)
-'''
+if not os.path.exists(a.output_dir):
+    os.makedirs(a.output_dir)
 
 class FeatureLoss(nn.Module):
     def __init__(self, m_feat, layer_ids, layer_wgts):
@@ -126,7 +123,7 @@ show_image(img_fast, figsize=(7,7), interpolation='nearest');
 
 p,img_hr,b = learn.predict(img_fast)
 #Image(img_hr).show(figsize=(7,7))
-save_image(img_hr, "output.png")
+save_image(img_hr, os.path.join(a.output_dir, "output.png"))
 
 """# **Recommended image sources**
 
