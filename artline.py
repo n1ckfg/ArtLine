@@ -112,20 +112,20 @@ https://www.freepik.com/search?dates=any&format=search&from_query=Portrait&page=
 """
 
 #url = 'https://image.freepik.com/free-photo/woman-field-running_23-2148574732.jpg' #@param {type:"string"}
-url='../test/drawing_004.jpg'
 
-#response = requests.get(url)
-#img = PIL.Image.open(BytesIO(response.content)).convert("RGB")
-img = PIL.Image.open(url).convert("RGB")
-img_t = T.ToTensor()(img)
-img_fast = Image(img_t)
-show_image(img_fast, figsize=(7,7), interpolation='nearest');
+for i in range(0, len(input_paths)):
+    #response = requests.get(url)
+    #img = PIL.Image.open(BytesIO(response.content)).convert("RGB")
+    img = PIL.Image.open(input_paths[i]).convert("RGB")
+    img_t = T.ToTensor()(img)
+    img_fast = Image(img_t)
+    #show_image(img_fast, figsize=(7,7), interpolation='nearest');
 
-"""# **Output**"""
+    """# **Output**"""
 
-p,img_hr,b = learn.predict(img_fast)
-#Image(img_hr).show(figsize=(7,7))
-save_image(img_hr, os.path.join(a.output_dir, "output.png"))
+    p,img_hr,b = learn.predict(img_fast)
+    #Image(img_hr).show(figsize=(7,7))
+    save_image(img_hr, os.path.join(a.output_dir, "output" + str(i) + ".png"))
 
 """# **Recommended image sources**
 
