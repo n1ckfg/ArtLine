@@ -43,6 +43,7 @@ import urllib.request
 import PIL.Image
 from io import BytesIO
 import torchvision.transforms as T
+from torchvision.utils import save_image
 
 class FeatureLoss(nn.Module):
     def __init__(self, m_feat, layer_ids, layer_wgts):
@@ -98,7 +99,7 @@ show_image(img_fast, figsize=(7,7), interpolation='nearest');
 
 p,img_hr,b = learn.predict(img_fast)
 #Image(img_hr).show(figsize=(7,7))
-Image(img_hr).save("output.png")
+save_image(img_hr, "output.png")
 
 """# **Recommended image sources**
 
