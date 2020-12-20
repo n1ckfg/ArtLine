@@ -126,6 +126,7 @@ for i in range(0, len(input_paths)):
     p,img_hr,b = learn.predict(img_fast)
     #Image(img_hr).show(figsize=(7,7))
     save_image(img_hr, os.path.join(a.output_dir, "output" + str(i) + ".png"))
+    print("Saved file " + str(i+1) + " of " + str(len(input_paths)) + ".")
 
 """# **Recommended image sources**
 
