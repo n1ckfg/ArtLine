@@ -87,10 +87,12 @@ Link to high-quality portrait pics. Click on the image, let it expand and then c
 https://www.freepik.com/search?dates=any&format=search&from_query=Portrait&page=1&query=Portrait&sort=popular&type=photo
 """
 
-url = 'https://image.freepik.com/free-photo/woman-field-running_23-2148574732.jpg' #@param {type:"string"}
+#url = 'https://image.freepik.com/free-photo/woman-field-running_23-2148574732.jpg' #@param {type:"string"}
+url='../test/drawing_004.jpg'
 
-response = requests.get(url)
-img = PIL.Image.open(BytesIO(response.content)).convert("RGB")
+#response = requests.get(url)
+#img = PIL.Image.open(BytesIO(response.content)).convert("RGB")
+img = PIL.Image.open(url).convert("RGB")
 img_t = T.ToTensor()(img)
 img_fast = Image(img_t)
 show_image(img_fast, figsize=(7,7), interpolation='nearest');
