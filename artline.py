@@ -49,7 +49,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("--input_dir", help="path to folder containing images")
 parser.add_argument("--output_dir", required=True, help="where to put output files")
-parser.add_argument("--model", default=None, help="path to model")
+parser.add_argument("--model", default=None, help="path to model directory")
 a = parser.parse_args()
 
 '''
@@ -98,8 +98,9 @@ class FeatureLoss(nn.Module):
 
 #MODEL_URL = "https://www.dropbox.com/s/p9lynpwygjmeed2/ArtLine_500.pkl?dl=1 "
 #urllib.request.urlretrieve(MODEL_URL, "ArtLine_500.pkl")
-#path = Path("Model")
-learn=load_learner(a.model) #path, 'ArtLine_500.pkl')
+path = Path(a.model)
+#learn=load_learner(path, 'ArtLine_500.pkl')
+learn=load_learner(path, 'ArtLine_650.pkl')
 
 """# **URL**
 Type in a url to a direct link of an **high quality image**. Usually that means they'll end in .png, .jpg, etc. 
