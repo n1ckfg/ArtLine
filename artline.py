@@ -44,6 +44,30 @@ import PIL.Image
 from io import BytesIO
 import torchvision.transforms as T
 from torchvision.utils import save_image
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--input_dir", help="path to folder containing images")
+parser.add_argument("--output_dir", required=True, help="where to put output files")
+parser.add_argument("--model", default=None, help="path to model")
+a = parser.parse_args()
+
+'''
+if a.input_dir is None or not os.path.exists(a.input_dir):
+    raise Exception("input_dir does not exist")
+
+input_paths = glob.glob(os.path.join(a.input_dir, "*.jpg"))
+
+if len(input_paths) == 0:
+    input_paths = glob.glob(os.path.join(a.input_dir, "*.png"))
+
+if len(input_paths) == 0:
+    raise Exception("input_dir contains no image files")
+
+image_dir = os.path.join(a.output_dir, "images")
+if not os.path.exists(image_dir):
+    os.makedirs(image_dir)
+'''
 
 class FeatureLoss(nn.Module):
     def __init__(self, m_feat, layer_ids, layer_wgts):
@@ -74,8 +98,8 @@ class FeatureLoss(nn.Module):
 
 #MODEL_URL = "https://www.dropbox.com/s/p9lynpwygjmeed2/ArtLine_500.pkl?dl=1 "
 #urllib.request.urlretrieve(MODEL_URL, "ArtLine_500.pkl")
-path = Path("Model")
-learn=load_learner(path, 'ArtLine_500.pkl')
+#path = Path("Model")
+learn=load_learner(a.model) #path, 'ArtLine_500.pkl')
 
 """# **URL**
 Type in a url to a direct link of an **high quality image**. Usually that means they'll end in .png, .jpg, etc. 
