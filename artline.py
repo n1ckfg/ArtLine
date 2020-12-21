@@ -68,6 +68,8 @@ if len(input_paths) == 0:
 if not os.path.exists(a.output_dir):
     os.makedirs(a.output_dir)
 
+input_paths.sort()
+
 class FeatureLoss(nn.Module):
     def __init__(self, m_feat, layer_ids, layer_wgts):
         super().__init__()
